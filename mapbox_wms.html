@@ -60,7 +60,7 @@
 	<div id='map-ui'>
     <ul>
       <li><a href='#' class='active' id='Boswijzer2010'>Boswijzer 2010</a></li>
-      <li><a href='#' class='active' id='precipitation'>Precipitation</a></li>
+      <li><a href='#' class='active' id='Luchtfotos2012'>Luchtfoto's 2012</a></li>
     </ul>
   </div>
 </div>
@@ -68,7 +68,7 @@
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
     .setView([51, 4], 8);
 
-var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
+var Luchtfotos2012 = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
     format: 'image/png',
     transparent: true,
     layers: 'RGB'
@@ -90,7 +90,7 @@ document.getElementById('Boswijzer2010').onclick = function () {
 
 document.getElementById('precipitation').onclick = function () {
     var enable = this.className !== 'active';
-    precipitation.setOpacity(enable ? 1 : 0);
+    Luchtfotos2012.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
