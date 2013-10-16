@@ -81,7 +81,7 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 }).addTo(map);
 
 // Layer switcher
-document.getElementById('Boswijzer2010').onclick = function () {
+/*document.getElementById('Boswijzer2010').onclick = function () {
     var enable = this.className !== 'active';
     Boswijzer2010.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
@@ -93,7 +93,19 @@ document.getElementById('Luchtfotos2012').onclick = function () {
     Luchtfotos2012.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
+};*/
+
+var baseMaps = {
+    "Boswijzer 2010": Boswijzer2010,
+    "Luchtfoto's 2012": Luchtfotos2012
 };
+
+var overlayMaps = {
+    "Motorways": motorways,
+    "Cities": cities
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 </script>
 </body>
