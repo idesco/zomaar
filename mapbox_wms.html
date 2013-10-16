@@ -59,8 +59,8 @@
 <div id='map'>
 	<div id='map-ui'>
     <ul>
+      <li><a href='#' class='active' id='precipitation'>Precipitation</a></li>
       <li><a href='#' class='active' id='temperature'>Temperature</a></li>
-      <li><a href='#' class='active' id='precipitation'>Precipitation</a></li>	
       </li>
     </ul>
   </div>
@@ -69,29 +69,29 @@
 var map = L.mapbox.map('map', 'examples.map-y7l23tes')
     .setView([37, -99], 5);
 
-var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
-    format: 'img/jpeg',
-    transparent: true,
-    layers: 'Boswijz10'
-}).addTo(map);
-
 var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
     format: 'image/jpeg',
     transparent: true,
     layers: 'RGB'
 }).addTo(map);
 
+var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
+    format: 'img/jpeg',
+    transparent: true,
+    layers: 'Boswijz10'
+}).addTo(map);
+
 // Layer switcher
-document.getElementById('temperature').onclick = function () {
+document.getElementById('precipitation').onclick = function () {
     var enable = this.className !== 'active';
-    temperature.setOpacity(enable ? 1 : 0);
+    precipitation.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
 
-document.getElementById('precipitation').onclick = function () {
+document.getElementById('temperature').onclick = function () {
     var enable = this.className !== 'active';
-    precipitation.setOpacity(enable ? 1 : 0);
+    temperature.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
