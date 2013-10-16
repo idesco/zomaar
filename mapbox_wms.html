@@ -70,13 +70,13 @@ var map = L.mapbox.map('map', 'examples.map-y7l23tes')
     .setView([37, -99], 5);
 
 var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
-    format: 'image/jpeg',
+    format: 'image/png',
     transparent: true,
     layers: 'RGB'
 }).addTo(map);
 
 var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
-    format: 'img/jpeg',
+    format: 'img/png',
     transparent: true,
     layers: 'Boswijz10'
 }).addTo(map);
