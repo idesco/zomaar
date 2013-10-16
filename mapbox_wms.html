@@ -83,7 +83,7 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 // Layer switcher
 document.getElementById('Boswijzer2010').onclick = function () {
     var enable = this.className !== 'active';
-    temperature.setOpacity(enable ? 1 : 0);
+    Boswijzer2010.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
