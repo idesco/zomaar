@@ -60,8 +60,7 @@
 	<div id='map-ui'>
     <ul>
       <li><a href='#' class='active' id='temperature'>Temperature</a></li>
-      <li><a href='#' class='active' id='precipitation'>Precipitation</a>
-      <li><a href='#' class='active' id='luchtfoto2009'>Luchtfoto2009</a></li>	
+      <li><a href='#' class='active' id='precipitation'>Precipitation</a></li>	
       </li>
     </ul>
   </div>
@@ -82,12 +81,6 @@ var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvo
     layers: 'RGB'
 }).addTo(map);
 
-var luchtfoto2009 = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
-    format: 'image/jpeg',
-    transparent: true,
-    layers: 'OMZ09VLRGB'
-}).addTo(map);
-
 // Layer switcher
 document.getElementById('temperature').onclick = function () {
     var enable = this.className !== 'active';
@@ -103,12 +96,6 @@ document.getElementById('precipitation').onclick = function () {
     return false;
 };
 
-document.getElementById('luchtfoto2009').onclick = function () {
-    var enable = this.className !== 'active';
-    luchtfoto.setOpacity(enable ? 1 : 0);
-    this.className = enable ? 'active' : '';
-    return false;
-};
 </script>
 </body>
 </html>
