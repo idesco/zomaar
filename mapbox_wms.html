@@ -59,7 +59,7 @@
 <div id='map'>
 	<div id='map-ui'>
     <ul>
-      <li><a href='#' class='active' id='temperature'>Temperature</a></li>
+      <li><a href='#' class='active' id='Boswijzer2010'>Boswijzer 2010</a></li>
       <li><a href='#' class='active' id='precipitation'>Precipitation</a></li>
     </ul>
   </div>
@@ -74,14 +74,14 @@ var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvo
     layers: 'RGB'
 }).addTo(map);
 
-var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
+var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
     format: 'img/png',
     transparent: true,
     layers: 'Boswijz10'
 }).addTo(map);
 
 // Layer switcher
-document.getElementById('temperature').onclick = function () {
+document.getElementById('Boswijzer2010').onclick = function () {
     var enable = this.className !== 'active';
     temperature.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
