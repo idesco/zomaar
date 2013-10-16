@@ -78,8 +78,7 @@ var precipitation = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvo
 var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
     format: 'img/png',
     transparent: true,
-    layers: 'Boswijz10',
-    crs: 'EPSG4326'
+    layers: 'Boswijz10'
 }).addTo(map);
 
 // Layer switcher
