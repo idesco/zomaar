@@ -82,16 +82,16 @@ var temperature = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 }).addTo(map);
 
 // Layer switcher
-document.getElementById('precipitation').onclick = function () {
+document.getElementById('temperature').onclick = function () {
     var enable = this.className !== 'active';
-    precipitation.setOpacity(enable ? 1 : 0);
+    temperature.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
 
-document.getElementById('temperature').onclick = function () {
+document.getElementById('precipitation').onclick = function () {
     var enable = this.className !== 'active';
-    temperature.setOpacity(enable ? 1 : 0);
+    precipitation.setOpacity(enable ? 1 : 0);
     this.className = enable ? 'active' : '';
     return false;
 };
