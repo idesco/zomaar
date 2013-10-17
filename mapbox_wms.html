@@ -81,6 +81,7 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
     layers: 'Boswijz10'
 }).addTo(map);
 
+
 // Layer switcher
 /*document.getElementById('Boswijzer2010').onclick = function () {
     var enable = this.className !== 'active';
@@ -102,11 +103,11 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Motorways": motorways,
-    "Cities": cities
+    "Boswijzer 2010": Boswijzer2010
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
+
 
 </script>
 </body>
