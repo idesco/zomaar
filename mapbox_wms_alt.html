@@ -60,9 +60,20 @@
     border-top-color: #FFF;
     color: #FFF;
 }
+
+#content {
+    position:absolute;
+    top:0;
+    left:0;
+    width:200px;
+    bottom:0;
+    background:#000;
+    background:rgba(0, 0, 0, 0.5);
+}
 </style>
 <div id='map'>
 <div id='map-ui'></div>
+<div id='content'></div>
 </div>
 <script>
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
@@ -70,7 +81,7 @@ var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
 
 map.fitBounds([
     [50, 4],
-    [51, 5]
+    [50.5, 5]
 ], {
     // this preserves the space from the left of the real map to 200px
     // for content. the format is [x, y]. See
