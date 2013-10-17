@@ -57,16 +57,12 @@
 
 </style>
 <div id='map'>
-	<!--<div id='map-ui'>
-  </div>-->
+	<div id='map-ui'>
+  </div>
 </div>
 <script>
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
     .setView([51, 4], 8).addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));
-    
-//add geocoder
-/*L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
-    .addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));*/
 
 //add WMS layers
 
@@ -89,17 +85,42 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 }).addTo(map);
 
 //add control layers
+var ui = document.getElementById('map-ui');
 
-var baseMaps = {
-    "Luchtfoto's zomer 2012": Luchtfotos2012,
-    "Luchtfoto's zomer 2009": Luchtfotos2009
-};
+addLayer(Luchtfotos2012);
+addLayer(Luchtfotos2009);
+addLayer(Boswijzer2010);
 
-var overlayMaps = {
-    "Boswijzer 2010": Boswijzer2010,
-};
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
 
-L.control.layers(baseMaps, overlayMaps).addTo(map);
+    // Create a simple layer switcher that toggles layers on
+    // and off.
+    var item = document.createElement('li');
+    var link = document.createElement('a');
+
+    link.href = '#';
+    link.className = 'active';
+    link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    item.appendChild(link);
+    ui.appendChild(item);
+}
 
 </script>
 </body>
