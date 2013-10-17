@@ -72,16 +72,16 @@
 }
 </style>
 <div id='map'>
-<div id='map-ui'></div>
 <div id='content'></div>
+<div id='map-ui'></div>
 </div>
 <script>
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
     .addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));
 
 map.fitBounds([
-    [50, 4],
-    [50.5, 5]
+    [50.5, 4],
+    [51, 5]
 ], {
     // this preserves the space from the left of the real map to 200px
     // for content. the format is [x, y]. See
