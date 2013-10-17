@@ -57,13 +57,8 @@
 
 </style>
 <div id='map'>
-	<div id='map-ui'>
-    <!--<ul>
-      <li><a href='#' class='active' id='Boswijzer2010'>Boswijzer 2010</a></li>
-      <li><a href='#' class='active' id='Luchtfotos2012'>Luchtfoto's 2012</a></li>
-    </ul>-->
-
-  </div>
+	<!--<div id='map-ui'>
+  </div>-->
 </div>
 <script>
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
@@ -75,6 +70,12 @@ var Luchtfotos2012 = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldv
     layers: 'RGB'
 }).addTo(map);
 
+var Luchtfotos2009 = L.tileLayer.wms("http://wms.agiv.be/inspire/wms/Orthobeeldvorming", {
+    format: 'image/png',
+    transparent: true,
+    layers: 'OMZ09VLRGB'
+}).addTo(map);
+
 var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
     format: 'img/png',
     transparent: true,
@@ -82,28 +83,15 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 }).addTo(map);
 
 
-// Layer switcher
-/*document.getElementById('Boswijzer2010').onclick = function () {
-    var enable = this.className !== 'active';
-    Boswijzer2010.setOpacity(enable ? 1 : 0);
-    this.className = enable ? 'active' : '';
-    return false;
-};
-
-document.getElementById('Luchtfotos2012').onclick = function () {
-    var enable = this.className !== 'active';
-    Luchtfotos2012.setOpacity(enable ? 1 : 0);
-    this.className = enable ? 'active' : '';
-    return false;
-};*/
 
 var baseMaps = {
-    "Boswijzer 2010": Boswijzer2010,
-    "Luchtfoto's 2012": Luchtfotos2012
+    "Luchtfoto's zomer 2012": Luchtfotos2012
+    "Luchtfoto's zomer 2009": Luchtfotos2009
 };
 
 var overlayMaps = {
     "Boswijzer 2010": Boswijzer2010
+    "Boswijzer 2012": Boswijzer2012
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
