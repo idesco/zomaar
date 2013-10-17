@@ -87,9 +87,9 @@ var Boswijzer2010 = L.tileLayer.wms("http://geo.agiv.be/ogc/wms/product/ANB?", {
 //add control layers
 var ui = document.getElementById('map-ui');
 
-addLayer(Luchtfotos2012);
-addLayer(Luchtfotos2009);
-addLayer(Boswijzer2010);
+addLayer(Boswijzer2010, "Boswijzer 2010", 3);
+addLayer(Luchtfotos2012, "Luchtfoto's zomer 2012", 2);
+addLayer(Luchtfotos2009, "Luchtfoto's zomer 2009", 1);
 
 function addLayer(layer, name, zIndex) {
     layer
