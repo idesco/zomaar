@@ -29,7 +29,7 @@
  #map-ui {
     position: absolute;
     top: 125px;
-    left: 10px;
+    right: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -78,8 +78,11 @@
 </div>
 <div id='content'>content</div>
 <script>
-var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
+var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55', { zoomControl: false })
     .addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));
+
+new L.Control.Zoom({ position: 'topright' }).addTo(map);
+
 
 map.fitBounds([
     [50.3, 2],
