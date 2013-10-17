@@ -62,8 +62,8 @@
 </div>
 <script>
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
-    .setView([51, 4], 8);
-
+    .setView([51, 4], 8).addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));
+    
 //add geocoder
 /*L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
     .addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));*/
@@ -101,8 +101,6 @@ var overlayMaps = {
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-
-    
 </script>
 </body>
 </html>
