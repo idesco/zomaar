@@ -4,82 +4,35 @@
 <meta charset=utf-8 />
 <title></title>
   <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+  <script src="scripts/quattrocento-sans.js"></script>
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
   <!--[if lte IE 8]>
     <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet'>
   <![endif]-->
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
+  <link href="styles/zomaar.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<style>
-#content {
-    position:absolute;
-    top:0;
-    left:0;
-    width:300px;
-    bottom:0;
-    background:#000;
-    background:rgba(0, 0, 0, 0.5);
-}
-
- #map-ui {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 100;
-}
-
-#map-ui a {
-    font: normal 13px/18px 'Helvetica Neue', Helvetica, sans-serif;
-    background: #FFF;
-    color: #3C4E5A;
-    display: block;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #BBB;
-    border-bottom-width: 0;
-    min-width: 138px;
-    padding: 10px;
-    text-decoration: none;
-}
-
-#map-ui a:hover {
-    background: #ECF5FA;
-}
-
-#map-ui li:last-child a {
-    border-bottom-width: 1px;
-    -webkit-border-radius: 0 0 3px 3px;
-    border-radius: 0 0 3px 3px;
-}
-
-#map-ui li:first-child a {
-    -webkit-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
-}
-
-#map-ui a.active {
-    background: #3887BE;
-    border-color: #3887BE;
-    border-top-color: #FFF;
-    color: #FFF;
-}
-
-</style>
 <div id='map'>
 <div id='map-ui'></div>
 </div>
-<div id='content'></div>
+<div id='content'>
+<div id='content-title'>
+<h1>Hoe wijs is de boswijzer?</h1> </div>
+<div id='content-txt'>
+Uit de resultaten van de boswijzer blijkt dat sinds 2011 achtduizend hectare bos is bijgekomen in Vlaanderen. Deze cijfers ontketende
+een golf van reacties uit de hoek van natuurorganisaties zoals BOS+ en BBL. Het Agentschap van Natuur en Bos (ANB) reageert met de boodschap dat de boswijzer 
+een volledig beeld geeft van het aantal hectaren bos dat zich in Vlaanderen bevindt, inclusief de bossen die spontaan zijn ontstaan. De
+boswijzer brengt de Vlaamse bossen in kaart op basis van luchtfoto's in combinatie met hoogte-data. In afwachting van de vrijgave van de 
+boswijzer 2012 brengen we hier alle beschikbare informatie al eens samen. U kan hier zelf de boswijzer van 2010 vergelijken met de luchtfoto's
+van 2009 en 2012. Hieruit kan u zelf concluderen welke bossen in kaart gebracht worden door de boswijzer en hoe volledig deze is. Via de tags
+kan u inzoomen op de voorbeelden die aangehaald werden door het ANB waar een duidelijke bostoename te zien valt. 
+</div>
+</div>
 <script>
+// add map template + geocoder control
 var map = L.mapbox.map('map', 'nazka-mapps.map-3c8b5n55')
     .addControl(L.mapbox.geocoderControl('nazka-mapps.map-3c8b5n55'));
-
+		
 map.fitBounds([
     [50.3, 2],
     [51.5, 6]
@@ -148,6 +101,30 @@ function addLayer(layer, name, zIndex) {
     item.appendChild(link);
     ui.appendChild(item);
 }
+
+// add hover markers -> werkt nog niet, nog verder uit te zoeken!!
+
+var geoJson = {
+    type: 'FeatureCollection',
+    features: [{
+        type: 'Feature',
+        properties: {
+            title: 'Boswijzer',
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [50.8, 4]
+        }
+    }]
+};
+
+map.markerLayer.setGeoJSON(geoJson);
+map.markerLayer.on('mouseover', function(e) {
+    e.layer.openPopup();
+});
+map.markerLayer.on('mouseout', function(e) {
+    e.layer.closePopup();
+});
 
 </script>
 </body>
