@@ -39,18 +39,30 @@
  </a>
  </div>
 <div id='content-title'>
-<h1>Hoe wijs is de boswijzer?</h1> 
+<h1>Hoe wijs is de boswijzer<code id="example1" class="nocode" rel="popover" data-trigger="hover" data-content="De
+boswijzer brengt de Vlaamse bossen in kaart op basis van luchtfoto's in combinatie met hoogte-data. De methode is 
+objectief en geautomatiseerd zodat ze in de toekomst eenvoudig kan herhaald worden. Dit maakt volgens Agentschap 
+Natuur en Bos van de Boswijzer een handig instrument om de evolutie van de bosoppervlakte in Vlaanderen op te volgen.
+De Boswijzer 2010 is de eerste boswijzer die op deze methodiek gestoeld is en geldt dan ook als referentie voor de 
+volgende metingen. Eerdere boskarteringen hanteerden een andere methode." data-original-title= "De Boswijzer" 
+;>i</code>?</h1> 
 </div>
 <div id='content-txt'>
 Om de xx jaar wordt een nieuwe boswijzer gemaakt op basis van luchtfoto's en hoogtegegevens. Uit de resultaten van de boswijzers van 2010 en 2012
-blijkt dat er 8000 hectare bos is bijgekomen in Vlaanderen. Deze cijfers stuitte op veel ongeloof. 
-De <code id="example1" class="nocode" rel="popover" data-trigger="hover" data-content="De
-boswijzer brengt de Vlaamse bossen in kaart op basis van luchtfoto's in combinatie met hoogte-data." data-original-title= "De Boswijzer" 
-;> boswijzer</code> houdt echter ook rekening met bossen die spontaan zijn ontstaan. In afwachting tot de boswijzer van 2012 wordt vrijgegeven, kan U 
-hier zelf al de boswijzer van 2010 vergelijken met de <code id="example2" class="nocode" rel="popover" data-trigger="hover" data-content="De
-boswijzer brengt de Vlaamse bossen in kaart op basis van luchtfoto's in combinatie met hoogte-data." data-original-title= "Luchtfoto's" 
-;> luchtfoto's </code> van 2009 en 2012. Zo ziet u zelf welke bossen in kaart gebracht worden door de 
-boswijzer en hoe volledig deze is.
+blijkt dat er 8000 hectare bos <code id="example3" class="nocode" rel="popover" data-trigger="hover" data-content=
+"Waneer zien we eigenlijk door de bomen een bos? In de boswijzer wordt bos gedefinieerd als volgt: minimum 0,5 ha groot, lengte/breedte verhouding minstens 2,5 
+en minimum 50% bedekking." data-original-title= "Definitie bos" 
+;> i </code> is bijgekomen in Vlaanderen. Deze cijfers stuitte op veel ongeloof. 
+De boswijzer houdt echter ook rekening met bossen die spontaan zijn ontstaan. In afwachting tot de boswijzer van 2012 wordt vrijgegeven, kan U 
+hier zelf al de boswijzer van 2010 vergelijken met de luchtfoto's <code id="example2" class="nocode" rel="popover" data-trigger="hover" data-content=
+"De luchtfoto's die hier getoond worden worden 'live' gestreamd van het Agentschap voor Geografische Informatie Vlaanderen, kortweg AGIV. Zij
+staan in voor het optimaal gebruik van geografische informatie binnen de Vlaamse overheid te stimuleren en te coördineren. Hou er rekening mee dat het
+even kan duren vooraleer de luchtfoto's in geladen zijn. Ze komen immers van de overheid :-)" data-original-title= "Bron luchtfoto's" 
+;> i </code> van 2009 en 2012. Zo ziet u zelf welke bossen in kaart gebracht worden door de 
+boswijzer en hoe volledig deze is <code id="example4" class="nocode" rel="popover" data-trigger="hover" data-content=
+"Wij vinden alvast dat de boswijzer een nuttige tool is! Ze vraagt echter een correcte interpretatie en communicatie. De kartering van bos is zowiezo
+geen gemakkelijke opdracht en al zeker niet om dit jaarlijks op een zo objectief mogelijke manier te ondernemen." data-original-title= "Onze mening" 
+;> i </code>.
 </div>
 </div>
 <script>
@@ -129,11 +141,19 @@ map.markerLayer.on('mouseout', function(e) {
 });
 
 $(function ()  
-{ $("#example1").popover();  
+{ $("#example1").popover({placement:'bottom'});  
 });  
 
 $(function ()  
 { $("#example2").popover();  
+});  
+
+$(function ()  
+{ $("#example3").popover();  
+});  
+
+$(function ()  
+{ $("#example4").popover();  
 });  
 </script>
 </body>

@@ -5861,11 +5861,12 @@ body.modal-open,
   left: 0;
   z-index: 1010;
   display: none;
-  max-width: 276px;
+  width: 200px;
   padding: 1px;
   text-align: left;
   white-space: normal;
-  background-color: #000000;
+  background-color: white;
+  color: black;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -5873,6 +5874,8 @@ body.modal-open,
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   font-size: 12px;
+  font-weight: normal;
+  line-height: 14px;
 }
 
 .popover.top {
@@ -5897,7 +5900,7 @@ body.modal-open,
   font-size: 18px;
   font-weight: normal;
   line-height: 18px;
-  background-color: #000000;
+  background-color: #b8e356;
   border-bottom: 1px solid #ebebeb;
   border-radius: 5px 5px 0 0;
 }
